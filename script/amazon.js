@@ -80,7 +80,14 @@ document.querySelectorAll('.js-add-to-cart') .forEach((button) => {
         });
     }
     
-    console.log(cart);
-   
+//calculate quantity
+let cartQuantity = 0;
+
+    cart.forEach((iteam)=>{
+       cartQuantity+= iteam.quantity;
+    });
+
+    //put quantity on the page(we increment cart)
+    document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
    });
 });
