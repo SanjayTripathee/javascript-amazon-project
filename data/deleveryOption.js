@@ -11,3 +11,16 @@ export const deleveryOptions = [{
     deleveryDays:1,
     priceCents:999
 }];
+
+
+  export function getDeleveryOption( deleveryOptionId){
+    let deleveryOption;
+
+    deleveryOptions.forEach((option)=>{
+       if(option.id === deleveryOptionId){
+          deleveryOption=option;
+       }
+    });
+    return deleveryOption;
+
+  }
