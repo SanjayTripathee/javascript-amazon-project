@@ -4,12 +4,10 @@ import { formatCurrency } from '../utility/money.js';
 import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {deleveryOptions,getDeleveryOption} from '../../data/deleveryOption.js';
+import { renderPaymentSummary } from './paymentSummary.js';
 
 
-hello();
-const today = dayjs();
-const deleveryDate = today.add(7,'days');
-console.log(deleveryDate.format('dddd,MMMM D'));
+
 
 
 export function renderOrderSummary(){
@@ -127,6 +125,8 @@ export function renderOrderSummary(){
          
       let container = document.querySelector(`.js-cart-iteam-cointener-${productId}`);
          container.remove();
+
+         renderPaymentSummary();
       });
    });
 
@@ -140,6 +140,8 @@ export function renderOrderSummary(){
          /*here it is recursion function because it is function inside function 
            or, re-run itself is recursion or re-run its code again*/
          renderOrderSummary();
+
+         renderPaymentSummary();
       });
 
    });
